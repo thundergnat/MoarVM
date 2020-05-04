@@ -115,6 +115,8 @@ MVM_PUBLIC MVMint32 MVM_jit_support(void);
 #include "core/index_hash_table.h"
 #include "core/ptr_hash_table.h"
 #include "core/uni_hash_table.h"
+#include "disp/registry.h"
+#include "disp/boot.h"
 #include "core/instance.h"
 #include "core/interp.h"
 #include "core/callsite.h"
