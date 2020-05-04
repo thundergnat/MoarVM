@@ -11552,6 +11552,76 @@ static const MVMOpInfo MVM_op_infos[] = {
         { MVM_operand_write_reg | MVM_operand_obj }
     },
     {
+        MVM_OP_dispatch_v,
+        "dispatch_v",
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        { MVM_operand_str, MVM_operand_callsite }
+    },
+    {
+        MVM_OP_dispatch_i,
+        "dispatch_i",
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        { MVM_operand_write_reg | MVM_operand_int64, MVM_operand_str, MVM_operand_callsite }
+    },
+    {
+        MVM_OP_dispatch_n,
+        "dispatch_n",
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        { MVM_operand_write_reg | MVM_operand_num64, MVM_operand_str, MVM_operand_callsite }
+    },
+    {
+        MVM_OP_dispatch_s,
+        "dispatch_s",
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        { MVM_operand_write_reg | MVM_operand_str, MVM_operand_str, MVM_operand_callsite }
+    },
+    {
+        MVM_OP_dispatch_o,
+        "dispatch_o",
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        { MVM_operand_write_reg | MVM_operand_obj, MVM_operand_str, MVM_operand_callsite }
+    },
+    {
         MVM_OP_sp_guard,
         "sp_guard",
         4,
@@ -12897,9 +12967,9 @@ static const MVMOpInfo MVM_op_infos[] = {
     },
 };
 
-static const unsigned short MVM_op_counts = 921;
+static const unsigned short MVM_op_counts = 926;
 
-static const MVMuint16 last_op_allowed = 824;
+static const MVMuint16 last_op_allowed = 829;
 
 static const MVMuint8 MVM_op_allowed_in_confprog[] = {
     0xD1, 0x1, 0x80, 0x3,
@@ -12927,7 +12997,7 @@ static const MVMuint8 MVM_op_allowed_in_confprog[] = {
     0x0, 0x0, 0x0, 0x0,
     0x0, 0x0, 0x0, 0x0,
     0x0, 0x0, 0x0, 0x0,
-    0x0, 0x0, 0x8,};
+    0x0, 0x0, 0x8, 0x0,};
 
 MVM_PUBLIC const MVMOpInfo * MVM_op_get_op(unsigned short op) {
     if (op >= MVM_op_counts)
@@ -12942,7 +13012,7 @@ MVM_PUBLIC MVMuint8 MVM_op_is_allowed_in_confprog(unsigned short op) {
 }
 
 MVM_PUBLIC const char *MVM_op_get_mark(unsigned short op) {
-    if (op > 825 && op < MVM_OP_EXT_BASE) {
+    if (op > 830 && op < MVM_OP_EXT_BASE) {
         return ".s";
     } else if (op == 23) {
         return ".j";
@@ -12964,6 +13034,8 @@ MVM_PUBLIC const char *MVM_op_get_mark(unsigned short op) {
         return "-a";
     } else if (op == 796) {
         return "-a";
+    } else if (op >= 825 && op < 830) {
+        return ".d";
     } else if (op >= MVM_OP_EXT_BASE) {
         return ".x";
     }
