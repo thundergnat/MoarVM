@@ -317,3 +317,4 @@ typedef struct MVMDispRegistryTable MVMDispRegistryTable;
 typedef struct MVMDispInlineCache MVMDispInlineCache;
 typedef struct MVMDispInlineCacheEntry MVMDispInlineCacheEntry;
 typedef struct MVMDispInlineCacheEntryResolvedGetLexStatic MVMDispInlineCacheEntryResolvedGetLexStatic;
+typedef struct MVMDispProgramOutcome MVMDispProgramOutcome;

@@ -122,6 +122,7 @@ MVM_PUBLIC MVMint32 MVM_jit_support(void);
 #include "core/interp.h"
 #include "core/callsite.h"
 #include "core/args.h"
+#include "disp/program.h"
 #include "core/alloc.h"
 #include "core/frame.h"
 #include "core/callstack.h"
