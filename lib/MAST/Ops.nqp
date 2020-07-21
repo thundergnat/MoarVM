@@ -4552,18 +4552,18 @@ BEGIN {
     'getppid', 792,
     'getsignals', 793,
     'slice', 794,
-    'speshreg', 795,
-    'speshresolve', 796,
-    'speshguardtype', 797,
-    'speshguardconcrete', 798,
-    'speshguardtypeobj', 799,
-    'speshguardobj', 800,
-    'speshguardgetattr', 801,
+    'DEPRECATED_35', 795,
+    'DEPRECATED_36', 796,
+    'DEPRECATED_37', 797,
+    'DEPRECATED_38', 798,
+    'DEPRECATED_39', 799,
+    'DEPRECATED_40', 800,
+    'DEPRECATED_41', 801,
     'atomicbindattr_o', 802,
     'casattr_o', 803,
     'atkey_u', 804,
     'coerce_us', 805,
-    'speshguardnotobj', 806,
+    'DEPRECATED_42', 806,
     'hllbool', 807,
     'hllboolfor', 808,
     'decodelocaltime', 809,
@@ -5382,18 +5382,18 @@ BEGIN {
     'getppid',
     'getsignals',
     'slice',
-    'speshreg',
-    'speshresolve',
-    'speshguardtype',
-    'speshguardconcrete',
-    'speshguardtypeobj',
-    'speshguardobj',
-    'speshguardgetattr',
+    'DEPRECATED_35',
+    'DEPRECATED_36',
+    'DEPRECATED_37',
+    'DEPRECATED_38',
+    'DEPRECATED_39',
+    'DEPRECATED_40',
+    'DEPRECATED_41',
     'atomicbindattr_o',
     'casattr_o',
     'atkey_u',
     'coerce_us',
-    'speshguardnotobj',
+    'DEPRECATED_42',
     'hllbool',
     'hllboolfor',
     'decodelocaltime',
@@ -11412,7 +11412,7 @@ BEGIN {
         my uint $index2 := nqp::unbox_u($op2); nqp::writeuint($bytecode, nqp::add_i($elems, 6), $index2, 5);
         my uint $index3 := nqp::unbox_u($op3); nqp::writeuint($bytecode, nqp::add_i($elems, 8), $index3, 5);
     },
-    'speshreg', sub ($op0, $op1, $op2) {
+    'DEPRECATED_35', sub ($op0, $op1, $op2) {
         my $bytecode := $*MAST_FRAME.bytecode;
         my uint $elems := nqp::elems($bytecode);
         nqp::writeuint($bytecode, $elems, 795, 5);
@@ -11420,39 +11420,39 @@ BEGIN {
         my uint $index1 := nqp::unbox_u($op1); nqp::writeuint($bytecode, nqp::add_i($elems, 4), $index1, 5);
         my uint $index2 := nqp::unbox_u($op2); nqp::writeuint($bytecode, nqp::add_i($elems, 6), $index2, 5);
     },
-    'speshresolve', sub ($op0, str $op1) {
+    'DEPRECATED_36', sub ($op0, str $op1) {
         my $frame := $*MAST_FRAME; my $bytecode := $frame.bytecode;
         my uint $elems := nqp::elems($bytecode);
         nqp::writeuint($bytecode, $elems, 796, 5);
         my uint $index0 := nqp::unbox_u($op0); nqp::writeuint($bytecode, nqp::add_i($elems, 2), $index0, 5);
         my uint $index1 := $frame.add-string($op1); nqp::writeuint($bytecode, nqp::add_i($elems, 4), $index1, 9);
     },
-    'speshguardtype', sub ($op0, $op1) {
+    'DEPRECATED_37', sub ($op0, $op1) {
         my $bytecode := $*MAST_FRAME.bytecode;
         my uint $elems := nqp::elems($bytecode);
         nqp::writeuint($bytecode, $elems, 797, 5);
         my uint $index0 := nqp::unbox_u($op0); nqp::writeuint($bytecode, nqp::add_i($elems, 2), $index0, 5);
         my uint $index1 := nqp::unbox_u($op1); nqp::writeuint($bytecode, nqp::add_i($elems, 4), $index1, 5);
     },
-    'speshguardconcrete', sub ($op0) {
+    'DEPRECATED_38', sub ($op0) {
         my $bytecode := $*MAST_FRAME.bytecode;
         my uint $elems := nqp::elems($bytecode);
         nqp::writeuint($bytecode, $elems, 798, 5);
         my uint $index0 := nqp::unbox_u($op0); nqp::writeuint($bytecode, nqp::add_i($elems, 2), $index0, 5);
     },
-    'speshguardtypeobj', sub ($op0) {
+    'DEPRECATED_39', sub ($op0) {
         my $bytecode := $*MAST_FRAME.bytecode;
         my uint $elems := nqp::elems($bytecode);
         nqp::writeuint($bytecode, $elems, 799, 5);
         my uint $index0 := nqp::unbox_u($op0); nqp::writeuint($bytecode, nqp::add_i($elems, 2), $index0, 5);
     },
-    'speshguardobj', sub ($op0) {
+    'DEPRECATED_40', sub ($op0) {
         my $bytecode := $*MAST_FRAME.bytecode;
         my uint $elems := nqp::elems($bytecode);
         nqp::writeuint($bytecode, $elems, 800, 5);
         my uint $index0 := nqp::unbox_u($op0); nqp::writeuint($bytecode, nqp::add_i($elems, 2), $index0, 5);
     },
-    'speshguardgetattr', sub ($op0, $op1, $op2, str $op3) {
+    'DEPRECATED_41', sub ($op0, $op1, $op2, str $op3) {
         my $frame := $*MAST_FRAME; my $bytecode := $frame.bytecode;
         my uint $elems := nqp::elems($bytecode);
         nqp::writeuint($bytecode, $elems, 801, 5);
@@ -11496,7 +11496,7 @@ BEGIN {
         my uint $index0 := nqp::unbox_u($op0); nqp::writeuint($bytecode, nqp::add_i($elems, 2), $index0, 5);
         my uint $index1 := nqp::unbox_u($op1); nqp::writeuint($bytecode, nqp::add_i($elems, 4), $index1, 5);
     },
-    'speshguardnotobj', sub ($op0, $op1) {
+    'DEPRECATED_42', sub ($op0, $op1) {
         my $bytecode := $*MAST_FRAME.bytecode;
         my uint $elems := nqp::elems($bytecode);
         nqp::writeuint($bytecode, $elems, 806, 5);
