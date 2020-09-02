@@ -39,7 +39,6 @@ static MVMDispSysCall dispatcher_delegate = {
     .expected_kinds = { MVM_CALLSITE_ARG_STR, MVM_CALLSITE_ARG_OBJ },
     .expected_reprs = { 0, MVM_REPR_ID_MVMCapture },
     .expected_concrete = { 1, 1 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* dispatcher-track-arg */
@@ -59,7 +58,6 @@ static MVMDispSysCall dispatcher_track_arg = {
     .expected_kinds = { MVM_CALLSITE_ARG_OBJ, MVM_CALLSITE_ARG_INT },
     .expected_reprs = { MVM_REPR_ID_MVMCapture, 0 },
     .expected_concrete = { 1, 1 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* dispatcher-track-attr */
@@ -81,7 +79,6 @@ static MVMDispSysCall dispatcher_track_attr = {
     .expected_kinds = { MVM_CALLSITE_ARG_OBJ, MVM_CALLSITE_ARG_OBJ, MVM_CALLSITE_ARG_STR },
     .expected_reprs = { MVM_REPR_ID_MVMTracked, 0, 0 },
     .expected_concrete = { 1, 0, 0 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* dispatcher-drop-arg */
@@ -101,7 +98,6 @@ static MVMDispSysCall dispatcher_drop_arg = {
     .expected_kinds = { MVM_CALLSITE_ARG_OBJ, MVM_CALLSITE_ARG_INT },
     .expected_reprs = { MVM_REPR_ID_MVMCapture, 0 },
     .expected_concrete = { 1, 1 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* dispatcher-insert-arg */
@@ -123,7 +119,6 @@ static MVMDispSysCall dispatcher_insert_arg = {
     .expected_kinds = { MVM_CALLSITE_ARG_OBJ, MVM_CALLSITE_ARG_INT, MVM_CALLSITE_ARG_OBJ },
     .expected_reprs = { MVM_REPR_ID_MVMCapture, 0, MVM_REPR_ID_MVMTracked },
     .expected_concrete = { 1, 1, 1 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* dispatcher-insert-arg-literal-obj */
@@ -145,7 +140,6 @@ static MVMDispSysCall dispatcher_insert_arg_literal_obj = {
     .expected_kinds = { MVM_CALLSITE_ARG_OBJ, MVM_CALLSITE_ARG_INT, MVM_CALLSITE_ARG_OBJ },
     .expected_reprs = { MVM_REPR_ID_MVMCapture, 0, 0 },
     .expected_concrete = { 1, 1, 0 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* dispatcher-insert-arg-literal-str */
@@ -167,7 +161,6 @@ static MVMDispSysCall dispatcher_insert_arg_literal_str = {
     .expected_kinds = { MVM_CALLSITE_ARG_OBJ, MVM_CALLSITE_ARG_INT, MVM_CALLSITE_ARG_STR },
     .expected_reprs = { MVM_REPR_ID_MVMCapture, 0, 0 },
     .expected_concrete = { 1, 1, 1 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* dispatcher-guard-type */
@@ -186,7 +179,6 @@ static MVMDispSysCall dispatcher_guard_type = {
     .expected_kinds = { MVM_CALLSITE_ARG_OBJ },
     .expected_reprs = { MVM_REPR_ID_MVMTracked },
     .expected_concrete = { 1 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* dispatcher-guard-concreteness */
@@ -205,7 +197,6 @@ static MVMDispSysCall dispatcher_guard_concreteness = {
     .expected_kinds = { MVM_CALLSITE_ARG_OBJ },
     .expected_reprs = { MVM_REPR_ID_MVMTracked },
     .expected_concrete = { 1 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* dispatcher-guard-literal */
@@ -224,7 +215,6 @@ static MVMDispSysCall dispatcher_guard_literal = {
     .expected_kinds = { MVM_CALLSITE_ARG_OBJ },
     .expected_reprs = { MVM_REPR_ID_MVMTracked },
     .expected_concrete = { 1 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* dispatcher-guard-not-literal-obj */
@@ -244,7 +234,6 @@ static MVMDispSysCall dispatcher_guard_not_literal_obj = {
     .expected_kinds = { MVM_CALLSITE_ARG_OBJ, MVM_CALLSITE_ARG_OBJ },
     .expected_reprs = { MVM_REPR_ID_MVMTracked, 0 },
     .expected_concrete = { 1, 0 },
-    .hash_handle = EMPTY_HASH_HANDLE
 };
 
 /* Add all of the syscalls into the hash. */
