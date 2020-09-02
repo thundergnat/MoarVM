@@ -141,13 +141,14 @@ MVMCallStackFlattening * MVM_args_perform_flattening(MVMThreadContext *tc, MVMCa
                 continue;
             MVMObject *hash = source[map[i]].o;
             MVMHashBody *body = &((MVMHash *)hash)->body;
+            MVMStrHashTable *hashtable = &(body->hashtable);
+            MVMStrHashIterator iterator = MVM_str_hash_first(tc, hashtable);
             MVMHashEntry *current;
             MVMuint32 limit = flatten_counts[i];
             MVMuint32 j = 0;
-            HASH_ITER_FAST(tc, hash_handle, body->hash_head, current, {
+            while ((current = MVM_str_hash_current(tc, hashtable, iterator))) {
                 if (j++ < limit) { /* Drop silently, we don't want to throw here. */
-                    MVMString *arg_name = MVM_HASH_KEY(current);
-                    // TODO dedupe
+                    MVMString *arg_name = current->hash_handle.key;
                     record->produced_cs.arg_flags[cur_new_arg] =
                             MVM_CALLSITE_ARG_NAMED | MVM_CALLSITE_ARG_OBJ;
                     record->arg_info.source[cur_new_arg].o = current->value;
@@ -155,7 +156,8 @@ MVMCallStackFlattening * MVM_args_perform_flattening(MVMThreadContext *tc, MVMCa
                     record->produced_cs.arg_names[cur_new_name] = arg_name;
                     cur_new_name++;
                 }
-            });
+                iterator = MVM_str_hash_next(tc, hashtable, iterator);
+            }
         }
         else if (flag & MVM_CALLSITE_ARG_NAMED) {
             /* Named arg. */
